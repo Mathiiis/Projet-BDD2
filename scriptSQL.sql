@@ -40,7 +40,7 @@ CREATE TABLE Personnel (
 CREATE TABLE Scientifique (
     idScientifique SERIAL PRIMARY KEY,
     idPersonnel INT UNIQUE NOT NULL,
-    Grade VARCHAR(50)
+    grade VARCHAR(50)
 );
 
 CREATE TABLE Chercheur (
@@ -49,40 +49,40 @@ CREATE TABLE Chercheur (
 );
 
 CREATE TABLE ChercheurEnseignant (
-    idChercheur_enseignant SERIAL PRIMARY KEY,
+    idChercheurEnseignant SERIAL PRIMARY KEY,
     idScientifique INT UNIQUE NOT NULL,
-    Echelon INT,
+    echelon INT,
     idEtablissement INT NOT NULL
 );
 
 CREATE TABLE Doctorant (
     idDoctorant SERIAL PRIMARY KEY,
     idPersonnel INT UNIQUE NOT NULL,
-    date_début_thèse DATE,
-    date_soutenance DATE
+    dateDebutThese DATE,
+    dateSoutenance DATE
 );
 
 CREATE TABLE Evenement (
-    idEvènement SERIAL PRIMARY KEY,
-    date_début DATE NOT NULL,
-    date_fin DATE NOT NULL
+    idEvenement SERIAL PRIMARY KEY,
+    dateDebut DATE NOT NULL,
+    dateFin DATE NOT NULL
 );
 
 CREATE TABLE JPO (
     idJPO SERIAL PRIMARY KEY,
-    idEvènement INT UNIQUE NOT NULL
+    idEvenement INT UNIQUE NOT NULL
 );
 
 CREATE TABLE Congres (
     idCongres SERIAL PRIMARY KEY,
-    idEvènement INT UNIQUE NOT NULL,
-    nombre_inscription INT,
+    idEvenement INT UNIQUE NOT NULL,
+    nbInscriptions INT,
     classe VARCHAR(50)
 );
 
 CREATE TABLE EtablissementEnseignement (
     idEtablissement SERIAL PRIMARY KEY,
-    Acronyme VARCHAR(20),
+    acronyme VARCHAR(20),
     adresse VARCHAR(255),
     nom VARCHAR(100)
 );
@@ -93,7 +93,7 @@ CREATE TABLE ProjetRecherche (
     acronyme VARCHAR(20),
     anneeDebut INT,
     dateFin DATE,
-    Coût_global DECIMAL(15, 2),
+    coutGlobal DECIMAL(15, 2),
     budgetAlloue DECIMAL(15, 2),
     idScientifique INT
 );
