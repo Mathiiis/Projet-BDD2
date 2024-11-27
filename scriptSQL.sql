@@ -1,3 +1,12 @@
 DROP DATABASE IF EXISTS Laboratoire;
 CREATE DATABASE Laboratoire;
 
+DROP TABLE IF EXISTS Personnel;
+DROP TABLE IF EXISTS Evenement;
+DROP TABLE IF EXISTS EtablissementEnseignement;
+DROP TABLE IF EXISTS Partenaire;
+DROP TABLE IF EXISTS Publications;
+DROP TABLE IF EXISTS LabosExternes;
+DROP TABLE IF EXISTS ProjetDeRecherche;
+DROP TABLE IF EXISTS CoutGlobal;
+DROP TABLE IF EXISTS AuteurExterne;
