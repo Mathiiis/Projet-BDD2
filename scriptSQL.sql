@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS Laboratoire;
 CREATE DATABASE Laboratoire;
 
+
 -- Suppression des tables de relation (tables avec des clés étrangères)
 DROP TABLE IF EXISTS AuteurExternePublication;
 DROP TABLE IF EXISTS AuteurLASSPublication;
