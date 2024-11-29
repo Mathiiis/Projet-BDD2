@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS Evenement;
 
 
 CREATE TABLE Personnel (
-    idPersonnel SERIAL PRIMARY KEY,
+    idPersonnel int PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
     dateNaissance DATE NOT NULL,
@@ -39,57 +39,57 @@ CREATE TABLE Personnel (
 );
 
 CREATE TABLE Scientifique (
-    idScientifique SERIAL PRIMARY KEY,
-    idPersonnel INT UNIQUE NOT NULL,
+    idScientifique int PRIMARY KEY,
+    idPersonnel int UNIQUE NOT NULL,
     grade VARCHAR(50)
 );
 
 CREATE TABLE Chercheur (
-    idChercheur SERIAL PRIMARY KEY,
+    idChercheur int PRIMARY KEY,
     idScientifique INT UNIQUE NOT NULL
 );
 
 CREATE TABLE ChercheurEnseignant (
-    idChercheurEnseignant SERIAL PRIMARY KEY,
+    idChercheurEnseignant int PRIMARY KEY,
     idScientifique INT UNIQUE NOT NULL,
     echelon INT,
     idEtablissement INT NOT NULL
 );
 
 CREATE TABLE Doctorant (
-    idDoctorant SERIAL PRIMARY KEY,
+    idDoctorant int PRIMARY KEY,
     idPersonnel INT UNIQUE NOT NULL,
     dateDebutThese DATE,
-    dateSoutenance DATE
+    dateSoutenance DATE NULL
 );
 
 CREATE TABLE Evenement (
-    idEvenement SERIAL PRIMARY KEY,
+    idEvenement int PRIMARY KEY,
     dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL
 );
 
 CREATE TABLE JPO (
-    idJPO SERIAL PRIMARY KEY,
+    idJPO int PRIMARY KEY,
     idEvenement INT UNIQUE NOT NULL
 );
 
 CREATE TABLE Congres (
-    idCongres SERIAL PRIMARY KEY,
+    idCongres int PRIMARY KEY,
     idEvenement INT UNIQUE NOT NULL,
     nbInscriptions INT,
     classe VARCHAR(50)
 );
 
 CREATE TABLE EtablissementEnseignement (
-    idEtablissement SERIAL PRIMARY KEY,
+    idEtablissement int PRIMARY KEY,
     acronyme VARCHAR(20),
     adresse VARCHAR(255),
     nom VARCHAR(100)
 );
 
 CREATE TABLE ProjetRecherche (
-    idProjet SERIAL PRIMARY KEY,
+    idProjet int PRIMARY KEY,
     titre VARCHAR(255),
     acronyme VARCHAR(20),
     anneeDebut INT,
@@ -100,13 +100,13 @@ CREATE TABLE ProjetRecherche (
 );
 
 CREATE TABLE Partenaire (
-    idPartenaire SERIAL PRIMARY KEY,
+    idPartenaire int PRIMARY KEY,
     nom VARCHAR(100),
     pays VARCHAR(100)
 );
 
 CREATE TABLE Publication (
-    idPublication SERIAL PRIMARY KEY,
+    idPublication int PRIMARY KEY,
     titre VARCHAR(255),
     anneePublication INT,
     nomConference VARCHAR(100),
@@ -115,13 +115,13 @@ CREATE TABLE Publication (
 );
 
 CREATE TABLE LabosExternes (
-    idLaboExterne SERIAL PRIMARY KEY,
+    idLaboExterne int PRIMARY KEY,
     nom VARCHAR(100),
     pays VARCHAR(100)
 );
 
 CREATE TABLE AuteurExterne (
-    idAuteur SERIAL PRIMARY KEY,
+    idAuteur int PRIMARY KEY,
     Nom VARCHAR(100),
     Prénom VARCHAR(100),
     Mai VARCHAR(100),
